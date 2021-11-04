@@ -3,7 +3,7 @@
 This menu is build for the CDS tools (Aladin, Simbad, Vizier...)
 Not finish yet.
 
-Project in the context of an internship at Strasbourg astronomical observatory.
+Project realized in the context of an internship at Strasbourg astronomical observatory.
 
 ## Adding the menu
 
