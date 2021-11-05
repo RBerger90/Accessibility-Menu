@@ -202,8 +202,12 @@ function augment(name){
 function high_contrast() {
     toggleClass(document.getElementById("cdsa_menu_contrast"), "cdsa_option_active");
     let link = document.getElementsByTagName("a");
+    let table = document.getElementsByTagName("tr");
     for(let i = 0; i < link.length; i++){
         toggleClass(link[i], "high_contrast");
+    }
+    for(let i = 0; i < table.length; i++){
+        toggleClass(table[i], "high_contrast");
     }
     toggleClass(document.getElementById("cdsa_guide"),"high_contrast");
     toggleClass(document.getElementById("cdsa_menu"),"high_contrast");

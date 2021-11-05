@@ -251,6 +251,7 @@ body
         line-height: inherit
         font-weight: inherit
 
+
     font
         font-size: inherit
         line-height: inherit
@@ -294,16 +295,21 @@ body
                 border-style: dashed !important
 
         &.high_contrast
-            color: #FFDD00
-            border-color: #FFDD00
-            background-color: #000
+            color: #FFDD00 !important
+            border-color: #FFDD00 !important
 
             &:hover
                 z-index: 60
                 position: relative
                 background-color: #424242
 
-    &.high_contrast
+    .navbar .brand.high_contrast //Don't change the background color of the CDS logo
+        background-color: white
+        &:hover
+            background-color: white
+
+
+    &.high_contrast, .high_contrast
         color: white
         background-color: black
 

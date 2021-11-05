@@ -276,16 +276,21 @@ body a[href].highlight_link:hover {
   border-style: dashed !important;
 }
 body a[href].high_contrast {
-  color: #FFDD00;
-  border-color: #FFDD00;
-  background-color: #000;
+  color: #FFDD00 !important;
+  border-color: #FFDD00 !important;
 }
 body a[href].high_contrast:hover {
   z-index: 60;
   position: relative;
   background-color: #424242;
 }
-body.high_contrast {
+body .navbar .brand.high_contrast {
+  background-color: white;
+}
+body .navbar .brand.high_contrast:hover {
+  background-color: white;
+}
+body.high_contrast, body .high_contrast {
   color: white;
   background-color: black;
 }
