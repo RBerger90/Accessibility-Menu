@@ -68,22 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cdsa_btn.id = "cdsa_button";
     cdsa_btn.setAttribute("aria-label", "accessibility menu");
 
-    //This part is used for the icon on the button --{
-    let cdsa_btn_svg = document.createElement("svg");
-    cdsa_btn_svg.setAttribute("xmlns",  "http://www.w3.org/2000/svg");
-    cdsa_btn_svg.setAttribute("viewBox", "0 0 64 64");
-    let cdsa_btn_path = document.createElement("path");
-    cdsa_btn_path.setAttribute("d",  "M51.2 21.2c-2.9-2.9.5-5.4 2.5-5.4a6 6 0 1 0-5.7-5.7c0 2-2.5 5.4-5.4 2.5L32 2 21.4 12.6c-2.9 2.9.5 5.4 2.5 5.4a6.1 6.1 0 1 1-5.7 5.7c0-2-2.5-5.4-5.4-2.5L2 32l10.8 10.8c2.9 2.9-.5 5.4-2.5 5.4a6.1 6.1 0 1 0 3.9 10.3 6 6 0 0 0 1.8-4.6c0-2 2.5-5.4 5.4-2.5L32 62l10.8-10.8c2.9-2.9-.5-5.4-2.5-5.4a6 6 0 1 1 5.7-5.7c0 2 2.5 5.4 5.4 2.5L62 32z");
-    cdsa_btn_path.setAttribute("fill",  "none");
-    cdsa_btn_path.setAttribute("stroke",  "#202020");
-    cdsa_btn_path.setAttribute("stroke-linecap",  "round");
-    cdsa_btn_path.setAttribute("stroke-linejoin",  "round");
-    cdsa_btn_path.setAttribute("stroke-width",  "2");
-    //------------------------------------------------}
-
-    cdsa_btn_svg.appendChild(cdsa_btn_path);
-    cdsa_btn.appendChild(cdsa_btn_svg);
-
     //Add the button as thee first element of the body on the DOM
     first_body_tag.insertAdjacentElement('afterbegin', cdsa_btn);
 
@@ -266,17 +250,17 @@ document.addEventListener("pointermove", (e) => {
 })
 
 //function to fixe the menu button above tail
-document.addEventListener("scroll",()=>{
-        let marge = 30;
-        let bottom_index = window.scrollY + window.innerHeight; //pixel index of the page at the bottom of the viewport
-        let tail_position = document.getElementsByClassName("cdstail")[0].offsetTop; //pixel index of the tail from the top of the page
-        if (bottom_index > tail_position) {
-            marge = 30 + bottom_index - tail_position;
-        } else {
-            marge = 30;
-        }
-        document.getElementById("cdsa_button").style.bottom = marge;
-        document.getElementById("cdsa_button").style.bottom = "transition: none";
+document.addEventListener("scroll", () => {
+    let marge= 30;
+    let bottom_index = window.scrollY + window.innerHeight; //pixel index of the page at the bottom of the viewport
+    let tail_position = document.getElementsByClassName("cdstail")[0].offsetTop; //pixel index of the tail from the top of the page
+    if (bottom_index > tail_position) {
+        marge = 30 + bottom_index - tail_position;
+    } else {
+        marge = 30;
+    }
+    document.getElementById("cdsa_button").style.bottom = marge + "px";
+    document.getElementById("cdsa_button").style.bottom = "transition: none";
 })
 
 //refresh the page to erase all styles
