@@ -198,6 +198,18 @@
   background-color: #ffee99;
 }
 
+body #menu a {
+  background: none;
+  color: black;
+}
+body #menu a:hover {
+  background: none;
+  color: black;
+}
+body #menu a.high_contrast {
+  color: black !important;
+  border-color: black !important;
+}
 body .lead {
   font-size: 1.3em;
   line-height: inherit;
@@ -230,6 +242,11 @@ body #text {
   line-height: inherit;
 }
 body table {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+body input {
   font-size: inherit;
   line-height: inherit;
   font-weight: inherit;
