@@ -201,15 +201,53 @@
 
 body #menu a {
   background: none;
-  color: black;
 }
 body #menu a:hover {
   background: none;
-  color: black;
 }
 body #menu a.high_contrast {
   color: black !important;
   border-color: black !important;
+}
+body #menu td.high_contrast {
+  color: black !important;
+  border-color: black !important;
+}
+body #menu td.high_contrast.bg_purple {
+  background-color: #f4d8ff !important;
+}
+body #menu td.high_contrast.bg_yellow {
+  background-color: #ffffee !important;
+}
+body #menu td.high_contrast.bg_green {
+  background-color: #ccffcc !important;
+}
+body #menu td.high_contrast.bg_white {
+  background-color: black !important;
+  border-color: white !important;
+}
+body #menu td.high_contrast i {
+  color: white !important;
+}
+body .bg_green_title.high_contrast,
+body .bg_green_title.high_contrast td.high_contrast {
+  background-color: #063606 !important;
+}
+body .bg_green.high_contrast,
+body .bg_green.high_contrast td.high_contrast {
+  background-color: #417c68 !important;
+}
+body .bg_blue_title.high_contrast,
+body .bg_blue_title.high_contrast td.high_contrast {
+  background-color: #2510AA !important;
+}
+body .bg_yellow.high_contrast,
+body .bg_yellow.high_contrast td.high_contrast {
+  background-color: #575700 !important;
+}
+body .bg_purple.high_contrast,
+body .bg_purple.high_contrast td.high_contrast {
+  background-color: #4A4A90 !important;
 }
 body > div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr, body > div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr {
   color: black !important;

@@ -59,7 +59,6 @@ function createBox(id, text, event) {
 //Button creation when the page is loaded
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(document.getElementsByClassName("cdstail")[0].scrollHeight);
     addClass(document.body, "font_1");
     addClass(document.body, "space_1");
     addClass(document.body, "line_1");
@@ -111,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let cdsa_guide_obj = document.createElement("div");
             cdsa_guide_obj.id = "cdsa_guide";
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_obj);
+            contrast_background(); //add specific classes to different background
 
         }else{
             //If the menu is created, we only make it visible or not for each click
@@ -201,18 +201,53 @@ function augment(name){
 //Put on the high contrast mode by adding some classes
 function high_contrast() {
     toggleClass(document.getElementById("cdsa_menu_contrast"), "cdsa_option_active");
-    let link = document.getElementsByTagName("a");
-    let table = document.getElementsByTagName("tr");
-    for(let i = 0; i < link.length; i++){
-        toggleClass(link[i], "high_contrast");
-    }
-    for(let i = 0; i < table.length; i++){
-        toggleClass(table[i], "high_contrast");
+    let listOfA = document.getElementsByTagName("a");
+    let listOfTr = document.getElementsByTagName("tr");
+    let listOfTd = document.getElementsByTagName("td");
+    let list = [...listOfTr, ...listOfTd, ...listOfA];
+    for(let i = 0; i < list.length; i++){
+        toggleClass(list[i], "high_contrast");
     }
     toggleClass(document.getElementById("cdsa_guide"),"high_contrast");
     toggleClass(document.getElementById("cdsa_menu"),"high_contrast");
     toggleClass(document.getElementById("cdsa_button"),"high_contrast");
     toggleClass(document.body,"high_contrast");
+}
+
+//Change color of background correctly when high contrast active
+function contrast_background(){
+    let listOfTr = document.getElementsByTagName("tr");
+    let listOfTd = document.getElementsByTagName("td");
+    let listOfTab = [...listOfTr, ...listOfTd];
+    console.log("test");
+    for(let i = 0; i < 300; i++){
+        console.log(listOfTab[i].bgColor);
+
+        switch(listOfTab[i].bgColor){
+            case "#64D264" : //green title
+                addClass(listOfTab[i],"bg_green_title");
+                break;
+            case "#CDFFCD" : //green content
+            case "#CCFFCC" :
+                addClass(listOfTab[i],"bg_green");
+                break;
+            case "#3264A0" : //blue title
+                addClass(listOfTab[i],"bg_blue_title");
+                break;
+            case "#FFFFCC" : //yellow content
+                addClass(listOfTab[i],"bg_yellow");
+                break;
+            case "#CCCCFF" : //purple content
+                addClass(listOfTab[i],"bg_purple");
+                break;
+            case "#FFFFFF" : //white content
+                addClass(listOfTab[i],"bg_white");
+                break;
+            default :
+                break;
+        }
+    }
+
 }
 
 //transform all the text into bold ones

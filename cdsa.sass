@@ -214,15 +214,60 @@ body
     #menu
         a
             background: none
-            color: black
 
             &:hover
                 background: none
-                color: black
 
             &.high_contrast
-                color: black !important
+                color: black!important
                 border-color: black !important
+
+
+        td.high_contrast
+            color: black !important
+            border-color: black !important
+
+            &.bg_purple
+                background-color: #f4d8ff !important
+
+            &.bg_yellow
+                background-color: #ffffee !important
+
+            &.bg_green
+                background-color: #ccffcc !important
+
+            &.bg_white
+                background-color: black !important
+                border-color: white !important
+
+            i
+                color: white !important
+
+
+
+
+    //background contrast
+
+    .bg_green_title.high_contrast,
+    .bg_green_title.high_contrast td.high_contrast
+        background-color: #063606 !important
+
+    .bg_green.high_contrast,
+    .bg_green.high_contrast td.high_contrast
+        background-color: #417c68 !important
+
+    .bg_blue_title.high_contrast,
+    .bg_blue_title.high_contrast td.high_contrast
+        background-color: #2510AA !important
+
+    .bg_yellow.high_contrast,
+    .bg_yellow.high_contrast td.high_contrast
+        background-color: #575700 !important
+
+    .bg_purple.high_contrast,
+    .bg_purple.high_contrast td.high_contrast
+        background-color: #4A4A90 !important
+
 
     //Aladin lite element on Simbad
     &> div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr,
