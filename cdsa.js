@@ -235,6 +235,7 @@ function contrast_background(){
                 addClass(listOfTab[i],"bg_blue_title");
                 break;
             case "#FFFFCC" : //yellow content
+            case "#FFFF99" :
                 addClass(listOfTab[i],"bg_yellow");
                 break;
             case "#CCCCFF" : //purple content
