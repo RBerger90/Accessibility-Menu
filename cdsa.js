@@ -219,12 +219,11 @@ function contrast_background(){
     let listOfTr = document.getElementsByTagName("tr");
     let listOfTd = document.getElementsByTagName("td");
     let listOfTab = [...listOfTr, ...listOfTd];
-    console.log("test");
     for(let i = 0; i < 300; i++){
-        console.log(listOfTab[i].bgColor);
 
         switch(listOfTab[i].bgColor){
             case "#64D264" : //green title
+            case "#317D8D" :
                 addClass(listOfTab[i],"bg_green_title");
                 break;
             case "#CDFFCD" : //green content
@@ -239,6 +238,7 @@ function contrast_background(){
                 addClass(listOfTab[i],"bg_yellow");
                 break;
             case "#CCCCFF" : //purple content
+            case "#DDF" :
                 addClass(listOfTab[i],"bg_purple");
                 break;
             case "#FFFFFF" : //white content
@@ -278,11 +278,10 @@ document.addEventListener("pointermove", (e) => {
     if(cdsa_menu_is_built===true) {
         let guide = document.getElementById("cdsa_guide");
         if (hasClass(guide, "cdsa_guide_active")) {
-            let long = 600;
-            guide.style.width = long + "px";
-            guide.style.top = e.clientY + 2 + "px";
-            //guideLine.style.left = e.clientX + "px"; //at the right of the mouse
-            guide.style.left = e.clientX - long / 2 + "px"; //center of the mouse
+            let a = 0;
+            a = guide.style.borderTopWidth;
+            guide.style.top = e.clientY - 3030 + "px"; //because border fixed at 3000px
+            console.log(a);
         }
     }else{
         return 0;

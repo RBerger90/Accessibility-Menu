@@ -37,19 +37,22 @@
   z-index: 97;
   margin: 0;
   padding: 0;
-  height: 10px;
-  background-color: rgba(72, 61, 72, 0.7);
-  border: solid 1px;
-  border-radius: 10px;
+  height: 3.5em;
+  border-top: solid rgba(72, 61, 72, 0.4);
+  border-bottom: solid rgba(72, 61, 72, 0.4);
+  border-width: 3000px;
   position: fixed;
   visibility: hidden;
+  width: 130%;
+  left: -20px;
+  pointer-events: none;
 }
 #cdsa_guide.cdsa_guide_active {
   visibility: visible;
 }
 #cdsa_guide.high_contrast {
-  background-color: rgba(255, 220, 0, 0.7);
-  border-color: white;
+  background-color: rgba(255, 220, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 #cdsa_menu {
@@ -136,7 +139,7 @@
   justify-content: center;
   border-radius: 3px;
   box-sizing: border-box;
-  padding: 0 10px 0 10px;
+  padding: 0 15px 0 15px;
   overflow: hidden;
 }
 #cdsa_menu .cdsa_menu_box p {
@@ -229,6 +232,15 @@ body #menu td.high_contrast.bg_white {
 body #menu td.high_contrast i {
   color: white !important;
 }
+body .sortable {
+  line-height: inherit !important;
+}
+body.high_contrast .sortable thead th {
+  background-color: #4A4A90;
+}
+body.high_contrast .dataTables_info {
+  color: white !important;
+}
 body .bg_green_title.high_contrast,
 body .bg_green_title.high_contrast td.high_contrast {
   background-color: #063606 !important;
@@ -308,6 +320,7 @@ body li {
 }
 body code {
   font-size: 0.8em;
+  font-weight: inherit;
 }
 body h1 {
   font-size: 2.3em;
@@ -354,9 +367,16 @@ body .navbar .brand.high_contrast {
 body .navbar .brand.high_contrast:hover {
   background-color: white;
 }
-body.high_contrast, body .high_contrast {
+body.high_contrast,
+body .high_contrast {
   color: white;
   background-color: black;
+}
+body.high_contrast label,
+body.high_contrast .computed,
+body .high_contrast label,
+body .high_contrast .computed {
+  color: white !important;
 }
 body.bold_text {
   font-weight: bold !important;
