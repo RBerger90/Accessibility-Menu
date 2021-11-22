@@ -44,8 +44,8 @@
     margin: 0
     padding: 0
     height: 3.5em
-    border-top: solid rgba(72, 61, 72, 0.4)
-    border-bottom: solid rgba(72, 61, 72, 0.4)
+    border-top: solid rgba(72, 61, 72, 0.5)
+    border-bottom: solid rgba(72, 61, 72, 0.5)
     border-width: 3000px
     position: fixed
     visibility: hidden
@@ -58,8 +58,8 @@
         visibility: visible
 
     &.high_contrast
-        background-color: rgba(255, 220, 0, 0.2)
-        border-color: rgba(255, 255, 255, 0.6)
+        background: none
+        border-color: rgba(210, 210, 210, 0.7)
 
 
 #cdsa_menu
@@ -71,7 +71,7 @@
     height: 90vh
     position: fixed
     right: 2vw
-    bottom: 2vw
+    bottom: 30px
     display: none
     text-align: center
     letter-spacing: 2px
@@ -216,6 +216,7 @@ body
 
     //Simbad -------------------------------------------------------
     #menu
+
         a
             background: none
 
@@ -223,26 +224,11 @@ body
                 background: none
 
             &.high_contrast
-                color: black!important
-                border-color: black !important
-
+                filter: invert(0)
 
         td.high_contrast
             color: black !important
             border-color: black !important
-
-            &.bg_purple
-                background-color: #f4d8ff !important
-
-            &.bg_yellow
-                background-color: #ffff9b !important
-
-            &.bg_green
-                background-color: #ccffcc !important
-
-            &.bg_white
-                background-color: black !important
-                border-color: white !important
 
             i
                 color: white !important
@@ -260,30 +246,10 @@ body
         .dataTables_info
             color: white !important
 
-    .bg_green_title.high_contrast,
-    .bg_green_title.high_contrast td.high_contrast
-        background-color: #063606 !important
-
-    .bg_green.high_contrast,
-    .bg_green.high_contrast td.high_contrast
-        background-color: #417c68 !important
-
-    .bg_blue_title.high_contrast,
-    .bg_blue_title.high_contrast td.high_contrast
-        background-color: #2510AA !important
-
-    .bg_yellow.high_contrast,
-    .bg_yellow.high_contrast td.high_contrast
-        background-color: #575700 !important
-
-    .bg_purple.high_contrast,
-    .bg_purple.high_contrast td.high_contrast
-        background-color: #4A4A90 !important
-
 
     //Aladin lite element on Simbad
-    &> div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr,
-    &> div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr
+    &> div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td,
+    &> div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td
         color: black !important
         background-color: white !important
 
@@ -331,6 +297,8 @@ body
         font-size: inherit
         line-height: inherit
         font-weight: inherit
+
+
 
     input
         font-size: inherit
@@ -396,17 +364,26 @@ body
             background-color: white
 
 
-    &.high_contrast,
-    .high_contrast
+    &.high_contrast:not(.colored_bg),
+    .high_contrast:not(.colored_bg)
         color: white
         background-color: black
+
+    &.high_contrast,
+    .high_contrast
 
         label,
         .computed
             color: white !important
 
-
-
+    .colored_bg.high_contrast
+        filter : invert(100%)
+        color: black //white with the filter
+        border: 1px solid white
+        &> *
+            background-color: rgba(0, 0, 0, 0) //To avoid black background
+            filter: invert(100%) //refilter child to only filter the selected element
+            color: white !important
 
 
     &.bold_text

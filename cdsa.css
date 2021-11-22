@@ -38,8 +38,8 @@
   margin: 0;
   padding: 0;
   height: 3.5em;
-  border-top: solid rgba(72, 61, 72, 0.4);
-  border-bottom: solid rgba(72, 61, 72, 0.4);
+  border-top: solid rgba(72, 61, 72, 0.5);
+  border-bottom: solid rgba(72, 61, 72, 0.5);
   border-width: 3000px;
   position: fixed;
   visibility: hidden;
@@ -51,8 +51,8 @@
   visibility: visible;
 }
 #cdsa_guide.high_contrast {
-  background-color: rgba(255, 220, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border-color: rgba(210, 210, 210, 0.7);
 }
 
 #cdsa_menu {
@@ -64,7 +64,7 @@
   height: 90vh;
   position: fixed;
   right: 2vw;
-  bottom: 2vw;
+  bottom: 30px;
   display: none;
   text-align: center;
   letter-spacing: 2px;
@@ -209,25 +209,11 @@ body #menu a:hover {
   background: none;
 }
 body #menu a.high_contrast {
-  color: black !important;
-  border-color: black !important;
+  filter: invert(0);
 }
 body #menu td.high_contrast {
   color: black !important;
   border-color: black !important;
-}
-body #menu td.high_contrast.bg_purple {
-  background-color: #f4d8ff !important;
-}
-body #menu td.high_contrast.bg_yellow {
-  background-color: #ffff9b !important;
-}
-body #menu td.high_contrast.bg_green {
-  background-color: #ccffcc !important;
-}
-body #menu td.high_contrast.bg_white {
-  background-color: black !important;
-  border-color: white !important;
 }
 body #menu td.high_contrast i {
   color: white !important;
@@ -241,31 +227,11 @@ body.high_contrast .sortable thead th {
 body.high_contrast .dataTables_info {
   color: white !important;
 }
-body .bg_green_title.high_contrast,
-body .bg_green_title.high_contrast td.high_contrast {
-  background-color: #063606 !important;
-}
-body .bg_green.high_contrast,
-body .bg_green.high_contrast td.high_contrast {
-  background-color: #417c68 !important;
-}
-body .bg_blue_title.high_contrast,
-body .bg_blue_title.high_contrast td.high_contrast {
-  background-color: #2510AA !important;
-}
-body .bg_yellow.high_contrast,
-body .bg_yellow.high_contrast td.high_contrast {
-  background-color: #575700 !important;
-}
-body .bg_purple.high_contrast,
-body .bg_purple.high_contrast td.high_contrast {
-  background-color: #4A4A90 !important;
-}
-body > div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr, body > div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr {
+body > div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td, body > div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td {
   color: black !important;
   background-color: white !important;
 }
-body > div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr a, body > div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr a {
+body > div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td a, body > div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td a {
   border: none !important;
   background: none !important;
   color: black !important;
@@ -367,8 +333,8 @@ body .navbar .brand.high_contrast {
 body .navbar .brand.high_contrast:hover {
   background-color: white;
 }
-body.high_contrast,
-body .high_contrast {
+body.high_contrast:not(.colored_bg),
+body .high_contrast:not(.colored_bg) {
   color: white;
   background-color: black;
 }
@@ -376,6 +342,16 @@ body.high_contrast label,
 body.high_contrast .computed,
 body .high_contrast label,
 body .high_contrast .computed {
+  color: white !important;
+}
+body .colored_bg.high_contrast {
+  filter: invert(100%);
+  color: black;
+  border: 1px solid white;
+}
+body .colored_bg.high_contrast > * {
+  background-color: rgba(0, 0, 0, 0);
+  filter: invert(100%);
   color: white !important;
 }
 body.bold_text {

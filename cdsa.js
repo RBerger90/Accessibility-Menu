@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let cdsa_guide_obj = document.createElement("div");
             cdsa_guide_obj.id = "cdsa_guide";
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_obj);
-            contrast_background(); //add specific classes to different background
+            contrast_background(); //add specific classes to colored background
 
         }else{
             //If the menu is created, we only make it visible or not for each click
@@ -219,9 +219,15 @@ function contrast_background(){
     let listOfTr = document.getElementsByTagName("tr");
     let listOfTd = document.getElementsByTagName("td");
     let listOfTab = [...listOfTr, ...listOfTd];
-    for(let i = 0; i < 300; i++){
 
-        switch(listOfTab[i].bgColor){
+    for(let i = 0; i < listOfTab.length; i++){
+        if(window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgb(255, 255, 255)"
+        && window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgb(0, 0, 0)"
+        && window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgba(0, 0, 0, 0)"){
+            addClass(listOfTab[i],"colored_bg");
+        }
+
+        /*switch(window.getComputedStyle(listOfTab[i]).backgroundColor){
             case "#64D264" : //green title
             case "#317D8D" :
                 addClass(listOfTab[i],"bg_green_title");
@@ -239,6 +245,7 @@ function contrast_background(){
                 break;
             case "#CCCCFF" : //purple content
             case "#DDF" :
+            case "#DBDBDB" :
                 addClass(listOfTab[i],"bg_purple");
                 break;
             case "#FFFFFF" : //white content
@@ -246,7 +253,7 @@ function contrast_background(){
                 break;
             default :
                 break;
-        }
+        }*/
     }
 
 }
