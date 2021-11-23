@@ -37,14 +37,13 @@
   z-index: 97;
   margin: 0;
   padding: 0;
-  height: 3.5em;
-  border-top: solid rgba(72, 61, 72, 0.5);
-  border-bottom: solid rgba(72, 61, 72, 0.5);
-  border-width: 3000px;
+  height: 80px;
+  border-top: solid black;
+  border-bottom: solid black;
+  border-width: 10px;
   position: fixed;
   visibility: hidden;
-  width: 130%;
-  left: -20px;
+  width: 100%;
   pointer-events: none;
 }
 #cdsa_guide.cdsa_guide_active {
@@ -52,7 +51,22 @@
 }
 #cdsa_guide.high_contrast {
   background: none;
-  border-color: rgba(210, 210, 210, 0.7);
+  border-color: white;
+}
+
+.cdsa_guide_border {
+  z-index: 96;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(72, 61, 72, 0.5);
+  visibility: hidden;
+}
+.cdsa_guide_border.high_contrast {
+  background-color: rgba(210, 210, 210, 0.75) !important;
+}
+.cdsa_guide_border.cdsa_guide_active {
+  visibility: visible;
 }
 
 #cdsa_menu {
@@ -217,6 +231,9 @@ body #menu td.high_contrast {
 }
 body #menu td.high_contrast i {
   color: white !important;
+}
+body #menu td:not(:last-child).high_contrast > a {
+  border-color: #0022ff !important;
 }
 body .sortable {
   line-height: inherit !important;

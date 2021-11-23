@@ -108,8 +108,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             //Guide object --------
             let cdsa_guide_obj = document.createElement("div");
+            let cdsa_guide_bord1 = document.createElement("div");
+            let cdsa_guide_bord2 = document.createElement("div");
             cdsa_guide_obj.id = "cdsa_guide";
+            addClass(cdsa_guide_bord1,"cdsa_guide_border");
+            addClass(cdsa_guide_bord2,"cdsa_guide_border");
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_obj);
+            document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_bord1);
+            document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_bord2);
             contrast_background(); //add specific classes to colored background
 
         }else{
@@ -211,6 +217,8 @@ function high_contrast() {
     toggleClass(document.getElementById("cdsa_guide"),"high_contrast");
     toggleClass(document.getElementById("cdsa_menu"),"high_contrast");
     toggleClass(document.getElementById("cdsa_button"),"high_contrast");
+    toggleClass(document.getElementsByClassName("cdsa_guide_border")[0],"high_contrast");
+    toggleClass(document.getElementsByClassName("cdsa_guide_border")[1],"high_contrast");
     toggleClass(document.body,"high_contrast");
 }
 
@@ -221,41 +229,12 @@ function contrast_background(){
     let listOfTab = [...listOfTr, ...listOfTd];
 
     for(let i = 0; i < listOfTab.length; i++){
-        if(window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgb(255, 255, 255)"
+        if(window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgb(255, 255, 255)" //If not black, white or transparent, get a specific class
         && window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgb(0, 0, 0)"
         && window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgba(0, 0, 0, 0)"){
             addClass(listOfTab[i],"colored_bg");
         }
-
-        /*switch(window.getComputedStyle(listOfTab[i]).backgroundColor){
-            case "#64D264" : //green title
-            case "#317D8D" :
-                addClass(listOfTab[i],"bg_green_title");
-                break;
-            case "#CDFFCD" : //green content
-            case "#CCFFCC" :
-                addClass(listOfTab[i],"bg_green");
-                break;
-            case "#3264A0" : //blue title
-                addClass(listOfTab[i],"bg_blue_title");
-                break;
-            case "#FFFFCC" : //yellow content
-            case "#FFFF99" :
-                addClass(listOfTab[i],"bg_yellow");
-                break;
-            case "#CCCCFF" : //purple content
-            case "#DDF" :
-            case "#DBDBDB" :
-                addClass(listOfTab[i],"bg_purple");
-                break;
-            case "#FFFFFF" : //white content
-                addClass(listOfTab[i],"bg_white");
-                break;
-            default :
-                break;
-        }*/
     }
-
 }
 
 //transform all the text into bold ones
@@ -277,6 +256,8 @@ function highlight_link() {
 //Make visible a bar which follow the mouse to stay focus on a line when reading
 function reading_guide() {
     toggleClass(document.getElementById("cdsa_guide"), "cdsa_guide_active");
+    toggleClass(document.getElementsByClassName("cdsa_guide_border")[0], "cdsa_guide_active");
+    toggleClass(document.getElementsByClassName("cdsa_guide_border")[1], "cdsa_guide_active");
     toggleClass(document.getElementById("cdsa_menu_guide"), "cdsa_option_active");
 }
 
@@ -284,12 +265,12 @@ function reading_guide() {
 document.addEventListener("pointermove", (e) => {
     if(cdsa_menu_is_built===true) {
         let guide = document.getElementById("cdsa_guide");
-        if (hasClass(guide, "cdsa_guide_active")) {
-            let a = 0;
-            a = guide.style.borderTopWidth;
-            guide.style.top = e.clientY - 3030 + "px"; //because border fixed at 3000px
-            console.log(a);
-        }
+        let bordUp = document.getElementsByClassName("cdsa_guide_border")[0];
+        let bordDown = document.getElementsByClassName("cdsa_guide_border")[1];
+        let a = window.innerHeight - e.clientY; //Index of the mouse from the bottom
+        guide.style.top = e.clientY - 40 + "px"; //Value based on guide's height of 80px
+        bordUp.style.bottom = a + 40 + "px";
+        bordDown.style.top = e.clientY + 60 + "px";
     }else{
         return 0;
     }
