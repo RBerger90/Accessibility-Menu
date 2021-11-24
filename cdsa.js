@@ -250,6 +250,16 @@ function highlight_link() {
     let link = document.getElementsByTagName("a");
     for(let i = 0; i < link.length; i++){
         toggleClass(link[i], "highlight_link");
+        if(link[i].hasChildNodes()){
+            let child = link[i].children;
+            console.log(child);
+            for(let j = 0; j < child.length; j++){
+                console.log(child[j].tagName);
+                if(child[j].tagName === "IMG"){
+                    addClass(link[i],"has_image"); //Border around the image instead of under
+                }
+            }
+        }
     }
 }
 

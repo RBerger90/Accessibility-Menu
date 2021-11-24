@@ -238,17 +238,20 @@ body #menu td:not(:last-child).high_contrast > a {
 body .sortable {
   line-height: inherit !important;
 }
+body .info-tooltip {
+  z-index: 10;
+}
 body.high_contrast .sortable thead th {
   background-color: #4A4A90;
 }
 body.high_contrast .dataTables_info {
   color: white !important;
 }
-body > div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td, body > div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td {
+body > div:nth-child(9) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td, body > div:nth-child(6) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td {
   color: black !important;
   background-color: white !important;
 }
-body > div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td a, body > div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td a {
+body > div:nth-child(9) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td a, body > div:nth-child(6) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td a {
   border: none !important;
   background: none !important;
   color: black !important;
@@ -323,7 +326,6 @@ body a[href] {
 }
 body a[href]:hover {
   color: #113555;
-  background-color: #efeeee;
 }
 body a[href].highlight_link {
   line-height: 35px !important;
@@ -334,12 +336,40 @@ body a[href].highlight_link:hover {
   z-index: 60;
   position: relative;
   border-style: dashed !important;
+  background-color: #efeeee;
+}
+body a[href].highlight_link.has_image {
+  border: none !important;
+}
+body a[href].highlight_link.has_image:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+body a[href].highlight_link.has_image > img {
+  border: solid 3px !important;
+  padding: 5px 5px 5px 5px;
+}
+body a[href].highlight_link.has_image > img:hover {
+  z-index: 60;
+  position: relative;
+  border-style: dashed !important;
+  background-color: #efeeee;
 }
 body a[href].high_contrast {
   color: #FFDD00 !important;
   border-color: #FFDD00 !important;
 }
 body a[href].high_contrast:hover {
+  z-index: 60;
+  position: relative;
+  background-color: #424242;
+}
+body a[href].high_contrast.has_image:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+body a[href].high_contrast.has_image > img {
+  border-color: #FFDD00 !important;
+}
+body a[href].high_contrast.has_image > img:hover {
   z-index: 60;
   position: relative;
   background-color: #424242;

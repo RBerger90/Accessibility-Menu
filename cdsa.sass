@@ -250,6 +250,9 @@ body
     .sortable
         line-height: inherit !important
 
+    .info-tooltip
+        z-index: 10
+
     //background contrast
 
 
@@ -262,8 +265,8 @@ body
 
 
     //Aladin lite element on Simbad
-    &> div:nth-child(7) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td,
-    &> div:nth-child(4) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td
+    &> div:nth-child(9) > table:nth-child(11) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td, //THIS WILL NOT WORK ON REAL WEBSITE
+    &> div:nth-child(6) > table:nth-child(9) > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody tr > td
         color: black !important
         background-color: white !important
 
@@ -351,7 +354,6 @@ body
 
         &:hover
             color: #113555
-            background-color: #efeeee
 
         &.highlight_link
             line-height: 35px !important
@@ -362,6 +364,23 @@ body
                 z-index: 60
                 position: relative
                 border-style: dashed !important
+                background-color: #efeeee
+
+            &.has_image
+                border: none !important
+
+                &:hover
+                    background-color: rgba(0, 0, 0, 0)
+
+                > img
+                    border: solid 3px !important
+                    padding: 5px 5px 5px 5px
+
+                    &:hover
+                        z-index: 60
+                        position: relative
+                        border-style: dashed !important
+                        background-color: #efeeee
 
         &.high_contrast
             color: #FFDD00 !important
@@ -371,6 +390,21 @@ body
                 z-index: 60
                 position: relative
                 background-color: #424242
+
+            &.has_image
+
+                &:hover
+                    background-color: rgba(0, 0, 0, 0)
+
+                > img
+                    border-color: #FFDD00 !important
+
+                    &:hover
+                        z-index: 60
+                        position: relative
+                        background-color: #424242
+
+
 
     .navbar .brand.high_contrast //Don't change the background color of the CDS logo
         background-color: white
