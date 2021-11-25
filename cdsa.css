@@ -241,6 +241,54 @@ body .sortable {
 body .info-tooltip {
   z-index: 10;
 }
+body.high_contrast .card-panel:not(.teal),
+body.high_contrast .card-content {
+  background-color: black !important;
+  border: 1px solid white;
+}
+body.high_contrast .black-text {
+  color: inherit !important;
+}
+body.high_contrast .social-logo {
+  background-color: #FFDD00;
+}
+body.high_contrast .teal {
+  filter: invert(1);
+}
+body .ui-cdslogin-item {
+  font-size: 0.8em;
+}
+body .CodeMirror {
+  line-height: inherit;
+}
+body.high_contrast .ui-cdslogin-link {
+  color: #FFDD00 !important;
+}
+body.high_contrast .CodeMirror,
+body.high_contrast .DataTables_sort_wrapper {
+  border: 1px solid white;
+}
+body.high_contrast .CodeMirror pre.CodeMirror-cursor,
+body.high_contrast .DataTables_sort_wrapper pre.CodeMirror-cursor {
+  border-color: white;
+}
+body.high_contrast .CodeMirror span.cm-variable,
+body.high_contrast .DataTables_sort_wrapper span.cm-variable {
+  color: white !important;
+}
+body.high_contrast #prefPortal,
+body.high_contrast #prefAnnotations,
+body.high_contrast #prefXmatch {
+  filter: none !important;
+}
+body.high_contrast .ui-toolbar,
+body.high_contrast .ui-widget-header {
+  filter: invert(1);
+}
+body.high_contrast .ui-toolbar > *,
+body.high_contrast .ui-widget-header > * {
+  filter: invert(1);
+}
 body.high_contrast .sortable thead th {
   background-color: #4A4A90;
 }
@@ -275,6 +323,13 @@ body .nav-tabs > li {
   -ms-hyphens: auto;
   hyphens: auto;
   word-wrap: break-word;
+}
+body .navbar .brand {
+  color: inherit;
+}
+body .nav > li > a.high_contrast:hover,
+body .nav > li > a.high_contrast:focus {
+  background-color: black;
 }
 body .cdstail {
   font-size: inherit;
@@ -336,15 +391,13 @@ body a[href].highlight_link:hover {
   z-index: 60;
   position: relative;
   border-style: dashed !important;
-  background-color: #efeeee;
+  filter: invert(15%);
 }
 body a[href].highlight_link.has_image {
   border: none !important;
 }
-body a[href].highlight_link.has_image:hover {
-  background-color: rgba(0, 0, 0, 0);
-}
 body a[href].highlight_link.has_image > img {
+  border-color: #0E59A0;
   border: solid 3px !important;
   padding: 5px 5px 5px 5px;
 }
@@ -352,7 +405,7 @@ body a[href].highlight_link.has_image > img:hover {
   z-index: 60;
   position: relative;
   border-style: dashed !important;
-  background-color: #efeeee;
+  filter: invert(15%);
 }
 body a[href].high_contrast {
   color: #FFDD00 !important;
@@ -361,10 +414,7 @@ body a[href].high_contrast {
 body a[href].high_contrast:hover {
   z-index: 60;
   position: relative;
-  background-color: #424242;
-}
-body a[href].high_contrast.has_image:hover {
-  background-color: rgba(0, 0, 0, 0);
+  filter: invert(15%);
 }
 body a[href].high_contrast.has_image > img {
   border-color: #FFDD00 !important;
@@ -372,7 +422,7 @@ body a[href].high_contrast.has_image > img {
 body a[href].high_contrast.has_image > img:hover {
   z-index: 60;
   position: relative;
-  background-color: #424242;
+  filter: invert(15%);
 }
 body .navbar .brand.high_contrast {
   background-color: white;
@@ -391,12 +441,12 @@ body .high_contrast label,
 body .high_contrast .computed {
   color: white !important;
 }
-body .colored_bg.high_contrast {
+body.high_contrast .colored_bg {
   filter: invert(100%);
   color: black;
   border: 1px solid white;
 }
-body .colored_bg.high_contrast > * {
+body.high_contrast .colored_bg > * {
   background-color: rgba(0, 0, 0, 0);
   filter: invert(100%);
   color: white !important;

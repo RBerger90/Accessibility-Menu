@@ -226,13 +226,15 @@ function high_contrast() {
 function contrast_background(){
     let listOfTr = document.getElementsByTagName("tr");
     let listOfTd = document.getElementsByTagName("td");
-    let listOfTab = [...listOfTr, ...listOfTd];
+    let listOfTh = document.getElementsByTagName("th");
+    //let listOfDiv = document.getElementsByTagName("div");
+    let ListGroup = [...listOfTr, ...listOfTd, ...listOfTh];
 
-    for(let i = 0; i < listOfTab.length; i++){
-        if(window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgb(255, 255, 255)" //If not black, white or transparent, get a specific class
-        && window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgb(0, 0, 0)"
-        && window.getComputedStyle(listOfTab[i]).backgroundColor !== "rgba(0, 0, 0, 0)"){
-            addClass(listOfTab[i],"colored_bg");
+    for(let i = 0; i < ListGroup.length; i++){
+        if(window.getComputedStyle(ListGroup[i]).backgroundColor !== "rgb(255, 255, 255)" //If not black, white or transparent, get a specific class
+        && window.getComputedStyle(ListGroup[i]).backgroundColor !== "rgb(0, 0, 0)"
+        && window.getComputedStyle(ListGroup[i]).backgroundColor !== "rgba(0, 0, 0, 0)"){
+            addClass(ListGroup[i],"colored_bg");
         }
     }
 }

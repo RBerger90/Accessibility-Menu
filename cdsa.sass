@@ -253,9 +253,62 @@ body
     .info-tooltip
         z-index: 10
 
+
+    //Mobile version
+    &.high_contrast
+        .card-panel:not(.teal),
+        .card-content
+            background-color: black !important
+            border: 1px solid white
+
+        .black-text
+            color: inherit !important
+
+        .social-logo
+            background-color: #FFDD00
+
+        .teal
+            filter: invert(1)
+
+
+    //Tap service Simbad (Don't work well yet)
+    .ui-cdslogin-item
+        font-size: 0.8em
+
+    .CodeMirror
+        line-height: inherit
+
+    &.high_contrast
+        .ui-cdslogin-link
+            color: #FFDD00 !important
+
+        .CodeMirror,
+        .DataTables_sort_wrapper
+            border: 1px solid white
+
+            pre.CodeMirror-cursor
+                border-color: white
+
+            span.cm-variable
+                color: white !important
+
+        #prefPortal,
+        #prefAnnotations,
+        #prefXmatch
+            filter: none !important
+
+        .ui-toolbar,
+        .ui-widget-header
+            filter: invert(1)
+
+            > *
+                filter: invert(1)
+
+
+
+
+
     //background contrast
-
-
     &.high_contrast
         .sortable thead th
             background-color: #4A4A90
@@ -296,6 +349,14 @@ body
         -ms-hyphens: auto
         hyphens: auto
         word-wrap: break-word
+
+    .navbar .brand
+        color: inherit
+
+    .nav>li>a.high_contrast:hover,
+    .nav>li>a.high_contrast:focus
+        background-color: black
+
 
 
     //cdstail -------------------------------------------------------
@@ -364,15 +425,13 @@ body
                 z-index: 60
                 position: relative
                 border-style: dashed !important
-                background-color: #efeeee
+                filter: invert(15%)
 
             &.has_image
                 border: none !important
 
-                &:hover
-                    background-color: rgba(0, 0, 0, 0)
-
                 > img
+                    border-color: #0E59A0
                     border: solid 3px !important
                     padding: 5px 5px 5px 5px
 
@@ -380,7 +439,7 @@ body
                         z-index: 60
                         position: relative
                         border-style: dashed !important
-                        background-color: #efeeee
+                        filter: invert(15%)
 
         &.high_contrast
             color: #FFDD00 !important
@@ -389,20 +448,15 @@ body
             &:hover
                 z-index: 60
                 position: relative
-                background-color: #424242
+                filter: invert(15%)
 
-            &.has_image
-
-                &:hover
-                    background-color: rgba(0, 0, 0, 0)
-
-                > img
+            &.has_image > img
                     border-color: #FFDD00 !important
 
                     &:hover
                         z-index: 60
                         position: relative
-                        background-color: #424242
+                        filter: invert(15%)
 
 
 
@@ -424,15 +478,15 @@ body
         .computed
             color: white !important
 
-    .colored_bg.high_contrast
-        filter : invert(100%)
-        color: black //white with the filter
-        border: 1px solid white
-        &> *
-            background-color: rgba(0, 0, 0, 0) //To avoid black background
-            filter: invert(100%) //refilter child to only filter the selected element
-            color: white !important
-
+    &.high_contrast
+        .colored_bg
+            filter : invert(100%)
+            color: black //white with the filter
+            border: 1px solid white
+            > *
+                background-color: rgba(0, 0, 0, 0) //To avoid black background
+                filter: invert(100%) //refilter child to only filter the selected element
+                color: white !important
 
     &.bold_text
         font-weight: bold !important
