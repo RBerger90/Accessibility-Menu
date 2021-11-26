@@ -291,18 +291,48 @@ function fullscreen_table() {
         let topElement = document.body.children;
         for(let i = 0; i < topElement.length; i++) {
             if (hasClass(topElement[i], "safe")) {
-                console.log(topElement[i]);
                 class_on_all_children(topElement[i], "safe", false);
             }
         }
     }else{
         addClass(document.body,"justTable");
-
+        //alert("pass the mouse over table to visualize which one you want and click on it to see it in fullscreen");
         let safe = document.getElementsByTagName("table")[4];
+        select_element();
 
         class_on_all_children(safe, "safe", true);
         class_on_all_parents(safe, "safe", true);
     }
+}
+
+
+function select_element(){
+    let table = document.getElementsByTagName("table");
+    for(let i=0; i<table.length;i++){
+        table[i].addEventListener("mouseenter",(e) =>{
+            e.target.style.border = "solid 3px black";
+        })
+        table[i].addEventListener("mouseleave",(e) =>{
+            e.target.style.border = "none";
+        })
+    }/*
+    document.addEventListener("mouseover",(e) =>{
+        if(e.target.tagName === "TABLE") {
+            e.target.style.border = "solid 3px black";
+        }
+    })
+    for(let i=0; i<table.length;i++){
+        table[i].addEventListener("mouseleave",(e) => {
+            console.log(e.target.tagName);
+            e.target.style.border = "none";
+        })
+    }*/
+
+
+    document.addEventListener("click",(e) =>{
+        console.log("click");
+        return 0;
+    })
 }
 
 //Put or remove a class on an element and all its children
