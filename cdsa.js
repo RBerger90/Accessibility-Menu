@@ -113,11 +113,16 @@ document.addEventListener("DOMContentLoaded", () => {
             let cdsa_guide_bord1 = document.createElement("div");
             let cdsa_guide_bord2 = document.createElement("div");
             cdsa_guide_obj.id = "cdsa_guide";
-            addClass(cdsa_guide,"safe");
             addClass(cdsa_guide_bord1,"cdsa_guide_border");
             addClass(cdsa_guide_bord2,"cdsa_guide_border");
-            class_on_all_children(cdsa_mnu,"safe");
-            addClass(cdsa_btn,"safe");
+
+            //class to avoid invisibility if fullscreen table on
+            addClass(cdsa_btn,"cdsa");
+            addClass(cdsa_guide_obj,"cdsa");
+            addClass(cdsa_guide_bord1,"cdsa");
+            addClass(cdsa_guide_bord2,"cdsa");
+            class_on_all_children(cdsa_mnu,"cdsa", true);
+
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_obj);
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_bord1);
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_bord2);
@@ -281,45 +286,62 @@ function reading_guide() {
 
 //Allow to display a tab in fullscreen
 function fullscreen_table() {
-    addClass(document.body,"justTable");
-    let safe = document.getElementsByTagName("table")[4];
-    class_on_all_children(safe, "safe");
-    class_on_all_parents(safe, "safe");
-    //console.log(safe);
-    //addClass(safe, "test");
-    //if(safe.hasChildNodes()){
+    if(hasClass(document.body, "justTable")){
+        removeClass(document.body,"justTable");
+        let topElement = document.body.children;
+        for(let i = 0; i < topElement.length; i++) {
+            if (hasClass(topElement[i], "safe")) {
+                console.log(topElement[i]);
+                class_on_all_children(topElement[i], "safe", false);
+            }
+        }
+    }else{
+        addClass(document.body,"justTable");
 
-    //}
+        let safe = document.getElementsByTagName("table")[4];
 
-    //let child = safe.children;
-    //console.log(child);
-    //for(let j = 0; j < child.length; j++){
-    //    addClass(child[j],"safe");
-    //}
+        class_on_all_children(safe, "safe", true);
+        class_on_all_parents(safe, "safe", true);
+    }
 }
 
-function class_on_all_children(el, className){
+//Put or remove a class on an element and all its children
+function class_on_all_children(el, className, bool){
     if(el.hasChildNodes()){
         let child = el.children;
-        console.log(child);
         for(let i = 0; i < child.length; i++){
-            class_on_all_children(child[i],className);
+            class_on_all_children(child[i],className,bool);
         }
-        addClass(el, className);
+        if(bool === true){
+            addClass(el, className);
+        }else{
+            removeClass(el, className);
+        }
+
         return 0;
     }else{
-        addClass(el, className);
+        if(bool === true){
+            addClass(el, className);
+        }else{
+            removeClass(el, className);
+        }
         return 0;
     }
 }
 
-function class_on_all_parents(el, className){
+//put or remove a class on all parent of an element until <body>
+function class_on_all_parents(el, className, bool){
     el = el.parentNode;
     if(el === document.body){
         return 0;
     }else{
-        addClass(el,className);
+        if(bool === true){
+            addClass(el, className);
+        }else{
+            removeClass(el, className);
+        }
         class_on_all_parents(el, className);
+        return 0;
     }
 }
 

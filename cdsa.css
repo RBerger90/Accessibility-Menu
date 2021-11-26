@@ -220,7 +220,7 @@
   background-color: #ffee99;
 }
 
-body.justTable *:not(.safe) {
+body.justTable *:not(.safe):not(.cdsa) {
   display: none;
 }
 body #menu a {
