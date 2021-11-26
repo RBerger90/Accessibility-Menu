@@ -100,6 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
             cdsa_mnu.appendChild(createBox("cdsa_menu_link", "Highlight link", highlight_link));
             //Guide ----
             cdsa_mnu.appendChild(createBox("cdsa_menu_guide", "Reading guide", reading_guide));
+            //Fullscreen Table ----
+            cdsa_mnu.appendChild(createBox("cdsa_menu_table", "Fullscreen Table", fullscreen_table));
             //Default ----
             cdsa_mnu.appendChild(createBox("cdsa_menu_default", "Default", default_style));
 
@@ -111,8 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
             let cdsa_guide_bord1 = document.createElement("div");
             let cdsa_guide_bord2 = document.createElement("div");
             cdsa_guide_obj.id = "cdsa_guide";
+            addClass(cdsa_guide,"safe");
             addClass(cdsa_guide_bord1,"cdsa_guide_border");
             addClass(cdsa_guide_bord2,"cdsa_guide_border");
+            class_on_all_children(cdsa_mnu,"safe");
+            addClass(cdsa_btn,"safe");
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_obj);
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_bord1);
             document.getElementById("cdsa_menu").insertAdjacentElement("afterend", cdsa_guide_bord2);
@@ -271,6 +276,51 @@ function reading_guide() {
     toggleClass(document.getElementsByClassName("cdsa_guide_border")[0], "cdsa_guide_active");
     toggleClass(document.getElementsByClassName("cdsa_guide_border")[1], "cdsa_guide_active");
     toggleClass(document.getElementById("cdsa_menu_guide"), "cdsa_option_active");
+}
+
+
+//Allow to display a tab in fullscreen
+function fullscreen_table() {
+    addClass(document.body,"justTable");
+    let safe = document.getElementsByTagName("table")[4];
+    class_on_all_children(safe, "safe");
+    class_on_all_parents(safe, "safe");
+    //console.log(safe);
+    //addClass(safe, "test");
+    //if(safe.hasChildNodes()){
+
+    //}
+
+    //let child = safe.children;
+    //console.log(child);
+    //for(let j = 0; j < child.length; j++){
+    //    addClass(child[j],"safe");
+    //}
+}
+
+function class_on_all_children(el, className){
+    if(el.hasChildNodes()){
+        let child = el.children;
+        console.log(child);
+        for(let i = 0; i < child.length; i++){
+            class_on_all_children(child[i],className);
+        }
+        addClass(el, className);
+        return 0;
+    }else{
+        addClass(el, className);
+        return 0;
+    }
+}
+
+function class_on_all_parents(el, className){
+    el = el.parentNode;
+    if(el === document.body){
+        return 0;
+    }else{
+        addClass(el,className);
+        class_on_all_parents(el, className);
+    }
 }
 
 //function used to make the guide following the mouse
