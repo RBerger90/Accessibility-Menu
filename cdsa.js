@@ -284,56 +284,68 @@ function reading_guide() {
 }
 
 
+
 //Allow to display a tab in fullscreen
-function fullscreen_table() {
-    if(hasClass(document.body, "justTable")){
-        removeClass(document.body,"justTable");
-        let topElement = document.body.children;
-        for(let i = 0; i < topElement.length; i++) {
-            if (hasClass(topElement[i], "safe")) {
-                class_on_all_children(topElement[i], "safe", false);
+function fullscreen_table(){ //PEUT ETRE RENDRE POSSIBLE QUE SI TABLE DANS DOM
+    if(hasClass(document.getElementById("cdsa_menu_table"),"cdsa_option_active")){
+        removeClass(document.getElementById("cdsa_menu_table"),"cdsa_option_active");
+        document.removeEventListener("mouseover",targetTable);
+        document.removeEventListener("click",showTable);
+        if(hasClass(document.body, "justTable")){
+            removeClass(document.body,"justTable");
+            let topElement = document.body.children;
+            for(let i = 0; i < topElement.length; i++) {
+                if (hasClass(topElement[i], "safe")) {
+                    class_on_all_children(topElement[i], "safe", false);
+                }
             }
         }
     }else{
-        addClass(document.body,"justTable");
-        //alert("pass the mouse over table to visualize which one you want and click on it to see it in fullscreen");
-        let safe = document.getElementsByTagName("table")[4];
-        select_element();
+        alert("pass the mouse over table to visualize which one you want and click on it to see it in fullscreen");
+        addClass(document.getElementById("cdsa_menu_table"),"cdsa_option_active");
+        document.addEventListener("mouseover",targetTable);
+        document.addEventListener("click",showTable);
+    }
 
-        class_on_all_children(safe, "safe", true);
-        class_on_all_parents(safe, "safe", true);
+}
+
+function targetTable(e){
+    let mem = e.target;
+    let verif = false;
+    let target = document.getElementsByClassName("selectionFullscreen");
+    while(verif === false) {
+        if (mem === document.body) { //If we reach body we stop
+            if (target.length > 0) {
+                removeClass(target[0], "selectionFullscreen"); //We are not on a table anymore so we remove the class from the last one
+            }
+            verif = true;
+        } else if (mem.tagName === "TABLE") {//for the first parent table we stop
+            verif = true;
+            if (target.length > 0) { e
+                removeClass(target[0], "selectionFullscreen"); //We remove the class from the last table, by doing that, only one table will get the class even if it's the same
+            }
+            addClass(mem, "selectionFullscreen");//This class give big border to see which one is selected
+            return 0;
+        } else { //continue until a table or the body
+            mem = mem.parentNode;
+        }
     }
 }
 
+function showTable(){
+    let safe = document.getElementsByClassName("selectionFullscreen"); //This is an array but there is only one element possible
+    if (safe.length > 0) {
+        addClass(document.body,"justTable");
+        class_on_all_children(safe[0], "safe", true);
+        class_on_all_parents(safe[0], "safe", true);
+        removeClass(safe[0], "selectionFullscreen");
 
-function select_element(){
-    let mem;
-    let mem2 = document.body; //Default value to avoid error when we remove it's class for the first time
-    let verif;
-    document.addEventListener("mouseover",(e)=>{
-        mem = e.target;
-        verif = false;
-        while(verif === false){
-            if(mem === document.body){ //If we reach body we stop
-                removeClass(mem2,"selectionFullscreen"); //We are not on a table anymore so we remove the class from the last one
-                verif = true;
-            }else if(mem.tagName === "TABLE"){//for the first parent table we stop
-                verif = true;
-                removeClass(mem2,"selectionFullscreen"); //We remove the class from the last table, by doing that, only one table will get the class even if it's the same
-                addClass(mem,"selectionFullscreen");//This class give big border to see which one is selected
-                mem2 = mem;//we stock the last table hovered
-            }else{ //continue until a table or the body
-                mem = mem.parentNode;
-            }
+        document.removeEventListener("mouseover",targetTable);
+        document.removeEventListener("click",showTable);
 
-        }
-    })
-
-
-    document.addEventListener("click",(e) =>{
-        console.log("click");
-        return 0;
-    })
+    }else{
+        alert("No table selected");
+    }
 }
 
 //Put or remove a class on an element and all its children
@@ -371,7 +383,7 @@ function class_on_all_parents(el, className, bool){
         }else{
             removeClass(el, className);
         }
-        class_on_all_parents(el, className);
+        class_on_all_parents(el, className, bool);
         return 0;
     }
 }
@@ -396,7 +408,7 @@ document.addEventListener("scroll", () => {
     let marge= 30;
     let bottom_index = window.scrollY + window.innerHeight; //pixel index of the page at the bottom of the viewport
     let tail_position = document.getElementsByClassName("cdstail")[0].offsetTop; //pixel index of the tail from the top of the page
-    if (bottom_index > tail_position) {
+    if (bottom_index > tail_position && !hasClass(document.body,"justTable")) { //The button stay at the bottom if just table option is on
         marge = 30 + bottom_index - tail_position;
     } else {
         marge = 30;
