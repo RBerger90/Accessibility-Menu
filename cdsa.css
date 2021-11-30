@@ -220,6 +220,12 @@
   background-color: #ffee99;
 }
 
+body .selectionFullscreen {
+  border: solid 6px black;
+}
+body.high_contrast .selectionFullscreen {
+  border-color: white;
+}
 body #menu a {
   background: none;
 }

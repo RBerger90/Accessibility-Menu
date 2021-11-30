@@ -307,26 +307,27 @@ function fullscreen_table() {
 
 
 function select_element(){
-    let table = document.getElementsByTagName("table");
-    for(let i=0; i<table.length;i++){
-        table[i].addEventListener("mouseenter",(e) =>{
-            e.target.style.border = "solid 3px black";
-        })
-        table[i].addEventListener("mouseleave",(e) =>{
-            e.target.style.border = "none";
-        })
-    }/*
-    document.addEventListener("mouseover",(e) =>{
-        if(e.target.tagName === "TABLE") {
-            e.target.style.border = "solid 3px black";
+    let mem;
+    let mem2 = document.body; //Default value to avoid error when we remove it's class for the first time
+    let verif;
+    document.addEventListener("mouseover",(e)=>{
+        mem = e.target;
+        verif = false;
+        while(verif === false){
+            if(mem === document.body){ //If we reach body we stop
+                removeClass(mem2,"selectionFullscreen"); //We are not on a table anymore so we remove the class from the last one
+                verif = true;
+            }else if(mem.tagName === "TABLE"){//for the first parent table we stop
+                verif = true;
+                removeClass(mem2,"selectionFullscreen"); //We remove the class from the last table, by doing that, only one table will get the class even if it's the same
+                addClass(mem,"selectionFullscreen");//This class give big border to see which one is selected
+                mem2 = mem;//we stock the last table hovered
+            }else{ //continue until a table or the body
+                mem = mem.parentNode;
+            }
+
         }
     })
-    for(let i=0; i<table.length;i++){
-        table[i].addEventListener("mouseleave",(e) => {
-            console.log(e.target.tagName);
-            e.target.style.border = "none";
-        })
-    }*/
 
 
     document.addEventListener("click",(e) =>{
