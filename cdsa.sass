@@ -229,8 +229,40 @@
 
 body
     //Table Fullscreen ---------------------------------------------
-    &.justTable *:not(.safe):not(.cdsa)
-        display: none
+    &.warningTable
+        padding: 2em 0 2em 0
+
+        &:before,
+        &:after
+            content: ""
+            box-sizing: border-box
+            padding-top: 0.4em
+            padding-bottom: 0
+            position: fixed
+            z-index: 80
+            background: #00ffee
+            color: black !important
+            left: 0
+            right: 0
+            height: 2em
+            font-size: 1.2em
+            font-weight: bold
+            text-align: center
+        &:before
+            top: 0
+            content: "Pass the mouse over tables to visualize which one you want and click on it to see it in fullscreen"
+            border-bottom: solid 0.2em black
+        &:after
+            border-top: solid 0.2em black
+            content: "Click again on the button in the menu to get back to normal ->"
+            bottom: 0
+
+    &.justTable
+        padding-top: 0 !important
+
+        *:not(.safe):not(.cdsa),
+        &:before
+            display: none
 
     .selectionFullscreen
         border: solid 6px black

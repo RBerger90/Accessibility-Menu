@@ -220,7 +220,39 @@
   background-color: #ffee99;
 }
 
-body.justTable *:not(.safe):not(.cdsa) {
+body.warningTable {
+  padding: 2em 0 2em 0;
+}
+body.warningTable:before, body.warningTable:after {
+  content: "";
+  box-sizing: border-box;
+  padding-top: 0.4em;
+  padding-bottom: 0;
+  position: fixed;
+  z-index: 80;
+  background: #00ffee;
+  color: black !important;
+  left: 0;
+  right: 0;
+  height: 2em;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+body.warningTable:before {
+  top: 0;
+  content: "Pass the mouse over tables to visualize which one you want and click on it to see it in fullscreen";
+  border-bottom: solid 0.2em black;
+}
+body.warningTable:after {
+  border-top: solid 0.2em black;
+  content: "Click again on the button in the menu to get back to normal ->";
+  bottom: 0;
+}
+body.justTable {
+  padding-top: 0 !important;
+}
+body.justTable *:not(.safe):not(.cdsa), body.justTable:before {
   display: none;
 }
 body .selectionFullscreen {

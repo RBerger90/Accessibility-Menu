@@ -289,6 +289,7 @@ function reading_guide() {
 function fullscreen_table(){ //PEUT ETRE RENDRE POSSIBLE QUE SI TABLE DANS DOM
     if(hasClass(document.getElementById("cdsa_menu_table"),"cdsa_option_active")){
         removeClass(document.getElementById("cdsa_menu_table"),"cdsa_option_active");
+        removeClass(document.body,"warningTable");
         document.removeEventListener("mouseover",targetTable);
         document.removeEventListener("click",showTable);
         if(hasClass(document.body, "justTable")){
@@ -301,14 +302,16 @@ function fullscreen_table(){ //PEUT ETRE RENDRE POSSIBLE QUE SI TABLE DANS DOM
             }
         }
     }else{
-        alert("pass the mouse over table to visualize which one you want and click on it to see it in fullscreen");
         addClass(document.getElementById("cdsa_menu_table"),"cdsa_option_active");
+        addClass(document.body,"warningTable");
+        removeClass(document.getElementById("cdsa_menu"), "cdsa_menu_open"); //If we want to close the menu when option active
+        removeClass(document.getElementById("cdsa_button"), "cdsa_menu_open"); //----
         document.addEventListener("mouseover",targetTable);
         document.addEventListener("click",showTable);
     }
-
 }
 
+//Add a specific class when hover to the closest table in the DOM
 function targetTable(e){
     let mem = e.target;
     let verif = false;
@@ -332,6 +335,7 @@ function targetTable(e){
     }
 }
 
+//Add a class to an element with a specific class on click
 function showTable(){
     let safe = document.getElementsByClassName("selectionFullscreen"); //This is an array but there is only one element possible
     if (safe.length > 0) {
@@ -344,7 +348,7 @@ function showTable(){
         document.removeEventListener("click",showTable);
 
     }else{
-        alert("No table selected");
+       // alert("No table selected"); //Pop an alert if no table selected when clicked
     }
 }
 
