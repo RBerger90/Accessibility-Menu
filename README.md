@@ -7,7 +7,7 @@ Project realized in the context of an internship at Strasbourg astronomical obse
 
 ## Adding the menu
 
-Just put the cdsa.js and cdsa.css into your project, then, link these in your HTML file :
+Put the cdsa.js and cdsa.css into your project, then, link them in your HTML file :
 
 - cdsa.css as the last element of the HTML head;
 
