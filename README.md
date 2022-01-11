@@ -7,8 +7,28 @@ Project realized in the context of an internship at Strasbourg astronomical obse
 
 ## Adding the menu
 
-Put the cdsa.js and cdsa.css into your project, then, link them in your HTML file :
+You can add the files directly from github without dowloading them, use these lines to do so (lines 13 and 260):
 
-- cdsa.css as the last element of the HTML head;
+<img src="screenshots/CDSAinCode.png" alt="Implementation of CDSA menu in HTML code">
 
-- cdsa.js as the last element before closing the body of the HTML;
+Or you also can implement them localy by downloading cdsa.js and cdsa.css into your project and link them in your HTML file at the same place as shown just before.
+
+## Preview 
+
+Here you can see how the menu look like :
+
+<img src="screenshots/MenuOpen.png" alt="Preview of the menu open">
+
+
+
+And then a "before" "after" example of changes you can make on a webpage :
+
+### Before : 
+<img src="screenshots/AladinBefore.png" alt="Aladin home page without using CDSA menu">
+
+### After :
+<img src="screenshots/AladinAfter.png" alt="Aladin home page changed with CDSA menu">
+
+
+
+
