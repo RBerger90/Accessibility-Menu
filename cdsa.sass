@@ -90,13 +90,14 @@
     overflow: hidden
     box-shadow: 15px 15px 10px rgba(51, 51, 51, 0.34)
     padding: 5px
-    font-family: "Helvetica Neue"
+    font-family: Helvetica, arial, sans serif
 
     h2
-        font-family: "Helvetica Neue"
-        line-height: 20px
+        font-family: Helvetica, arial, sans serif
+        line-height: 35px
         color: white
         margin-left: 0
+        margin-top: 30px
         letter-spacing: 2px
         font-size: 35px
         grid-column: 1 / span 2
@@ -139,7 +140,8 @@
         overflow: hidden
 
         h3
-            font-family: "Helvetica Neue"
+            font-family: Helvetica, arial, sans serif
+            width: 100%
             line-height: 20px
             color: black
             font-size: 26px
@@ -588,9 +590,12 @@ body
 
 
 
-
+//For Computer --
 @media screen and (max-height: 600px)
     #cdsa_menu
+        h2
+            margin-top: 20px
+
         .cdsa_menu_big_box
             display: flex
             flex-wrap: wrap
@@ -616,8 +621,14 @@ body
 
 
 
-    @media screen and (max-width: 1060px)
+    @media screen and (max-width: 1200px)
+        #cdsa_button
+            &.cdsa_menu_open
+                right: 44vw
+
         #cdsa_menu
+            width: 42vw
+
             h2
                 font-size: 25px
 
@@ -638,14 +649,61 @@ body
                     p
                         font-size: 30px
 
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: 750px)
         #cdsa_button
             &.cdsa_menu_open
-                right: 42vw
+                right: 57vw
 
 
         #cdsa_menu
-            width: 40vw
+            width: 55vw
+
+            h2
+                font-size: 22px
+                margin-top: 25px
+                line-height: 0
+
+            .cdsa_menu_box
+                p
+                    font-size: 22px
+                    line-height: 20px
+
+            .cdsa_menu_big_box
+                h3
+                    font-size: 23px
+
+                .cdsa_menu_small_box
+
+                    p
+                        font-size: 30px
+
+
+@media screen and (min-height: 600px)
+    @media screen and (max-width: 1275px)
+        #cdsa_menu
+            .cdsa_menu_big_box
+
+                .cdsa_menu_small_box
+                    height: 25%
+
+    @media screen and (max-width: 1065px)
+        #cdsa_button
+            &.cdsa_menu_open
+                right: 44vw
+
+        #cdsa_menu
+            width: 42vw
+
+            h2
+                font-size: 30px
+
+    @media screen and (max-width: 750px)
+        #cdsa_button
+            &.cdsa_menu_open
+                right: 57vw
+
+        #cdsa_menu
+            width: 55vw
 
             h2
                 font-size: 22px
@@ -666,42 +724,96 @@ body
                         font-size: 30px
 
 
-@media screen and (max-width: 1275px) and (min-height: 600px)
-    #cdsa_menu
-        .cdsa_menu_big_box
+//For Smartphone ---
+@media screen and (max-device-width: 500px)
+    @media screen and (min-device-height: 600px)
+        #cdsa_button
+            &.cdsa_menu_open
+                right: 57vw
 
-            .cdsa_menu_small_box
-                height: 25%
+        #cdsa_menu
+            width: 55vw
 
-@media screen and (max-width: 1065px) and (min-height: 600px)
-    #cdsa_menu
-        h2
-            font-size: 30px
+            h2
+                font-size: 70px
+                line-height: 70px
+                margin-top: 50px
 
-@media screen and (max-width: 930px) and (min-height: 600px)
-    #cdsa_button
-        &.cdsa_menu_open
-            right: 42vw
-            bottom: 3.5vh
-
-
-    #cdsa_menu
-        width: 40vw
-
-        h2
-            font-size: 22px
-            margin-top: 25px
-
-        .cdsa_menu_box
-            p
-                font-size: 22px
-                line-height: 20px
-
-        .cdsa_menu_big_box
-            h3
-                font-size: 23px
-
-            .cdsa_menu_small_box
-
+            .cdsa_menu_box
                 p
-                    font-size: 30px
+                    font-size: 50px
+                    line-height: 55px
+
+            .cdsa_menu_big_box
+                h3
+                    font-size: 45px
+                    line-height: 40px
+
+                .cdsa_menu_small_box
+                    height: 37%
+
+                    p
+                        font-size: 50px
+
+    @media screen and (max-device-height: 599px)
+        #cdsa_menu
+            .cdsa_menu_big_box
+                display: flex
+                flex-wrap: wrap
+                justify-content: space-around
+
+                .cdsa_menu_small_box
+                    width: 47%
+                    height: 55%
+                    margin: 2px
+
+                h3
+                    margin-bottom: 4px
+                    align-self: center
+
+//For Tablet ---
+@media screen and (min-device-width: 501px) and (max-device-width: 1050px)
+    @media screen and (min-device-height: 600px)
+        #cdsa_button
+            &.cdsa_menu_open
+                right: 52vw
+
+        #cdsa_menu
+            width: 50vw
+
+            h2
+                font-size: 55px
+                line-height: 55px
+                margin-top: 30px
+
+            .cdsa_menu_box
+                p
+                    font-size: 40px
+                    line-height: 45px
+
+            .cdsa_menu_big_box
+                h3
+                    font-size: 40px
+                    line-height: 35px
+
+                .cdsa_menu_small_box
+                    height: 34%
+
+                    p
+                        font-size: 50px
+
+    @media screen and (max-device-height: 599px)
+        #cdsa_menu
+            .cdsa_menu_big_box
+                display: flex
+                flex-wrap: wrap
+                justify-content: space-around
+
+                .cdsa_menu_small_box
+                    width: 47%
+                    height: 55%
+                    margin: 2px
+
+                h3
+                    margin-bottom: 4px
+                    align-self: center

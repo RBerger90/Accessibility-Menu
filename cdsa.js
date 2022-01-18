@@ -264,9 +264,7 @@ function highlight_link() {
         toggleClass(link[i], "highlight_link");
         if(link[i].hasChildNodes()){
             let child = link[i].children;
-            console.log(child);
             for(let j = 0; j < child.length; j++){
-                console.log(child[j].tagName);
                 if(child[j].tagName === "IMG"){
                     addClass(link[i],"has_image"); //Border around the image instead of under
                 }
