@@ -23,7 +23,7 @@
     &.cdsa_menu_open
         z-index: 98
         transition: right  0.4s 0s, bottom 0.4s 0.4s, background-color 0.8s 0s
-        right: 32vw
+        right: 31vw
         background-color: rgb(30, 30, 30)
         border: none
         border-radius: 5px
@@ -89,7 +89,8 @@
     line-height: 20px
     overflow: hidden
     box-shadow: 15px 15px 10px rgba(51, 51, 51, 0.34)
-    padding: 5px
+    box-sizing: border-box
+    padding: 10px
     font-family: Helvetica, arial, sans serif
 
     h2
@@ -111,7 +112,7 @@
         display: flex
         flex-direction: column
         justify-content: center
-        height: 32%
+        height: 35%
         overflow: hidden
 
         &:hover
@@ -132,7 +133,7 @@
             line-height: 25px
 
     .cdsa_menu_big_box
-        margin: 5px
+        height: 100%
         background-color: #faf7f7
         border-radius: 3px
         box-sizing: border-box
@@ -153,7 +154,6 @@
             user-select: none
 
     .cdsa_menu_box
-        margin: 5px
         background-color: #faf7f7
         display: flex
         flex-direction: column
@@ -221,6 +221,7 @@
 
     &.cdsa_menu_open
         display: grid
+        grid-gap: 10px
         grid-template-columns: repeat(2, 1fr)
         grid-template-rows: repeat(7, 1fr)
 
@@ -603,7 +604,7 @@ body
 
             .cdsa_menu_small_box
                 width: 47%
-                height: 55%
+                height: 62%
                 margin: 2px
 
             h3
@@ -624,7 +625,7 @@ body
     @media screen and (max-width: 1200px)
         #cdsa_button
             &.cdsa_menu_open
-                right: 44vw
+                right: 43vw
 
         #cdsa_menu
             width: 42vw
@@ -645,6 +646,7 @@ body
 
                 .cdsa_menu_small_box
                     width: 45%
+                    height: 62%
 
                     p
                         font-size: 30px
@@ -652,7 +654,7 @@ body
     @media screen and (max-width: 750px)
         #cdsa_button
             &.cdsa_menu_open
-                right: 57vw
+                right: 56vw
 
 
         #cdsa_menu
@@ -684,15 +686,18 @@ body
             .cdsa_menu_big_box
 
                 .cdsa_menu_small_box
-                    height: 25%
+                    height: 32%
 
     @media screen and (max-width: 1065px)
         #cdsa_button
             &.cdsa_menu_open
-                right: 44vw
+                right: 43vw
 
         #cdsa_menu
             width: 42vw
+
+            .cdsa_menu_small_box
+                height: 32%
 
             h2
                 font-size: 30px
@@ -700,7 +705,7 @@ body
     @media screen and (max-width: 750px)
         #cdsa_button
             &.cdsa_menu_open
-                right: 57vw
+                right: 56vw
 
         #cdsa_menu
             width: 55vw
@@ -719,6 +724,7 @@ body
                     font-size: 23px
 
                 .cdsa_menu_small_box
+                    height: 32%
 
                     p
                         font-size: 30px
@@ -728,8 +734,11 @@ body
 @media screen and (max-device-width: 500px)
     @media screen and (min-device-height: 600px)
         #cdsa_button
+            height: 90px
+            width: 90px
+
             &.cdsa_menu_open
-                right: 57vw
+                right: 56vw
 
         #cdsa_menu
             width: 55vw
@@ -756,6 +765,10 @@ body
                         font-size: 50px
 
     @media screen and (max-device-height: 599px)
+        #cdsa_button
+            height: 90px
+            width: 90px
+
         #cdsa_menu
             .cdsa_menu_big_box
                 display: flex
@@ -764,7 +777,7 @@ body
 
                 .cdsa_menu_small_box
                     width: 47%
-                    height: 55%
+                    height: 62%
                     margin: 2px
 
                 h3
@@ -775,8 +788,11 @@ body
 @media screen and (min-device-width: 501px) and (max-device-width: 1050px)
     @media screen and (min-device-height: 600px)
         #cdsa_button
+            height: 70px
+            width: 70px
+
             &.cdsa_menu_open
-                right: 52vw
+                right: 51vw
 
         #cdsa_menu
             width: 50vw
@@ -803,6 +819,10 @@ body
                         font-size: 50px
 
     @media screen and (max-device-height: 599px)
+        #cdsa_button
+            height: 70px
+            width: 70px
+
         #cdsa_menu
             .cdsa_menu_big_box
                 display: flex
