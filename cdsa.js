@@ -322,7 +322,7 @@ function targetTable(e){
             verif = true;
         } else if (mem.tagName === "TABLE") {//for the first parent table we stop
             verif = true;
-            if (target.length > 0) { e
+            if (target.length > 0) {
                 removeClass(target[0], "selectionFullscreen"); //We remove the class from the last table, by doing that, only one table will get the class even if it's the same
             }
             addClass(mem, "selectionFullscreen");//This class give big border to see which one is selected
