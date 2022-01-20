@@ -80,9 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleClass(cdsa_btn, "cdsa_menu_open");
 
             //Menu title ------------------------------------------------------
+            let head = document.createElement("div");
+            head.id = "cdsa_head";
             let cdsa_mnu_title = document.createElement("h2");
             cdsa_mnu_title.innerText = "Accessibility Menu";
-            cdsa_mnu.appendChild(cdsa_mnu_title);
+            let cdsa_mnu_subtitle = document.createElement("a");
+            cdsa_mnu_subtitle.innerText = "This is a prototype. Please contact us for any problem or comments. (click on this text)";
+            cdsa_mnu_subtitle.setAttribute("href","mailto:cds-question@unistra.fr?Subject=CDSA menu");
+            head.appendChild(cdsa_mnu_title);
+            head.appendChild(cdsa_mnu_subtitle);
+            cdsa_mnu.appendChild(head);
 
             //Button for the font size ------------------------------------------------------
             cdsa_mnu.appendChild(createBigBox("cdsa_menu_box_font", "Font size", augment_font_size, reduce_font_size));

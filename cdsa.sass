@@ -94,16 +94,31 @@
     padding: 10px
     font-family: Helvetica, arial, sans serif
 
-    h2
-        font-family: Helvetica, arial, sans serif
-        line-height: 35px
-        color: white
-        margin-left: 0
-        margin-top: 30px
-        letter-spacing: 2px
-        font-size: 35px
+
+
+    #cdsa_head
         grid-column: 1 / span 2
         grid-row: 1/1
+        margin: 20px 0 0 0
+        padding: 0
+        color: white
+        font-family: Helvetica, arial, sans serif
+
+        h2
+            line-height: 35px
+            margin: 0
+            letter-spacing: 2px
+            font-size: 35px
+
+        a
+            color: white
+            line-height: 20px
+            margin: 0
+            font-size: 15px
+
+        a:hover
+            color: #aeeaf5
+
 
     .cdsa_menu_small_box
         margin-top: 10px
@@ -595,8 +610,8 @@ body
 //For Computer --
 @media screen and (max-height: 600px)
     #cdsa_menu
-        h2
-            margin-top: 20px
+        #cdsa_head
+            margin-top: 5px
 
         .cdsa_menu_big_box
             display: flex
@@ -616,10 +631,21 @@ body
 
     @media screen and (max-width: 1340px)
         #cdsa_menu
-            .cdsa_menu_big_box
+            #cdsa_head
+                h2
+                    font-size: 30px
+                a
+                    font-size: 13px
+                    line-height: 15px
 
+            .cdsa_menu_big_box
                 .cdsa_menu_small_box
                     height: 45%
+
+            .cdsa_menu_box
+                p
+                    font-size: 20px
+                    line-height: 20px
 
 
 
@@ -684,6 +710,9 @@ body
 @media screen and (min-height: 600px)
     @media screen and (max-width: 1275px)
         #cdsa_menu
+            #cdsa_head
+                margin-top: 10px
+
             .cdsa_menu_big_box
 
                 .cdsa_menu_small_box
@@ -744,10 +773,16 @@ body
         #cdsa_menu
             width: 55vw
 
-            h2
-                font-size: 70px
-                line-height: 70px
-                margin-top: 50px
+            #cdsa_head
+                margin-top: 10px
+
+                h2
+                    font-size: 60px
+                    line-height: 60px
+
+                a
+                    font-size: 30px
+                    line-height: 30px
 
             .cdsa_menu_box
                 p
@@ -798,10 +833,16 @@ body
         #cdsa_menu
             width: 50vw
 
-            h2
-                font-size: 55px
-                line-height: 55px
-                margin-top: 30px
+            #cdsa_head
+                margin-top: 10px
+
+                h2
+                    font-size: 60px
+                    line-height: 60px
+
+                a
+                    font-size: 30px
+                    line-height: 30px
 
             .cdsa_menu_box
                 p

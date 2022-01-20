@@ -90,16 +90,28 @@
   padding: 10px;
   font-family: Helvetica, arial, sans serif;
 }
-#cdsa_menu h2 {
-  font-family: Helvetica, arial, sans serif;
-  line-height: 35px;
-  color: white;
-  margin-left: 0;
-  margin-top: 30px;
-  letter-spacing: 2px;
-  font-size: 35px;
+#cdsa_menu #cdsa_head {
   grid-column: 1/span 2;
   grid-row: 1/1;
+  margin: 20px 0 0 0;
+  padding: 0;
+  color: white;
+  font-family: Helvetica, arial, sans serif;
+}
+#cdsa_menu #cdsa_head h2 {
+  line-height: 35px;
+  margin: 0;
+  letter-spacing: 2px;
+  font-size: 35px;
+}
+#cdsa_menu #cdsa_head a {
+  color: white;
+  line-height: 20px;
+  margin: 0;
+  font-size: 15px;
+}
+#cdsa_menu #cdsa_head a:hover {
+  color: #aeeaf5;
 }
 #cdsa_menu .cdsa_menu_small_box {
   margin-top: 10px;
@@ -550,8 +562,8 @@ body.line_5 {
 }
 
 @media screen and (max-height: 600px) {
-  #cdsa_menu h2 {
-    margin-top: 20px;
+  #cdsa_menu #cdsa_head {
+    margin-top: 5px;
   }
   #cdsa_menu .cdsa_menu_big_box {
     display: flex;
@@ -569,8 +581,19 @@ body.line_5 {
   }
 }
 @media screen and (max-height: 600px) and (max-width: 1340px) {
+  #cdsa_menu #cdsa_head h2 {
+    font-size: 30px;
+  }
+  #cdsa_menu #cdsa_head a {
+    font-size: 13px;
+    line-height: 15px;
+  }
   #cdsa_menu .cdsa_menu_big_box .cdsa_menu_small_box {
     height: 45%;
+  }
+  #cdsa_menu .cdsa_menu_box p {
+    font-size: 20px;
+    line-height: 20px;
   }
 }
 @media screen and (max-height: 600px) and (max-width: 1200px) {
@@ -627,6 +650,9 @@ body.line_5 {
   }
 }
 @media screen and (min-height: 600px) and (max-width: 1275px) {
+  #cdsa_menu #cdsa_head {
+    margin-top: 10px;
+  }
   #cdsa_menu .cdsa_menu_big_box .cdsa_menu_small_box {
     height: 32%;
   }
@@ -684,10 +710,16 @@ body.line_5 {
   #cdsa_menu {
     width: 55vw;
   }
-  #cdsa_menu h2 {
-    font-size: 70px;
-    line-height: 70px;
-    margin-top: 50px;
+  #cdsa_menu #cdsa_head {
+    margin-top: 10px;
+  }
+  #cdsa_menu #cdsa_head h2 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  #cdsa_menu #cdsa_head a {
+    font-size: 30px;
+    line-height: 30px;
   }
   #cdsa_menu .cdsa_menu_box p {
     font-size: 50px;
@@ -737,10 +769,16 @@ body.line_5 {
   #cdsa_menu {
     width: 50vw;
   }
-  #cdsa_menu h2 {
-    font-size: 55px;
-    line-height: 55px;
-    margin-top: 30px;
+  #cdsa_menu #cdsa_head {
+    margin-top: 10px;
+  }
+  #cdsa_menu #cdsa_head h2 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  #cdsa_menu #cdsa_head a {
+    font-size: 30px;
+    line-height: 30px;
   }
   #cdsa_menu .cdsa_menu_box p {
     font-size: 40px;
