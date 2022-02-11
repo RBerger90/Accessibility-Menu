@@ -53,6 +53,7 @@
     pointer-events: none
     box-sizing: content-box
 
+
     &.cdsa_guide_active
         visibility: visible
 
@@ -67,6 +68,10 @@
     position: fixed
     background-color: rgba(72, 61, 72, 0.5)
     visibility: hidden
+
+    &#upper_bord
+        transform-origin: center top //rotation because we place it with "top" to avoid bug with bottom scrollbar
+        transform: rotate(180deg)
 
     &.high_contrast
         background-color: rgba(210, 210, 210, 0.75) !important
@@ -278,6 +283,31 @@ body
 
     &.justTable
         padding-top: 0 !important
+
+        td, th
+            padding: 5px !important
+
+        .safe
+            padding: 0
+            margin: 0
+
+        tr:first-child
+            position: -webkit-sticky
+            position: sticky
+            top: 0
+            z-index: 52
+
+        tr td:first-child
+            background: inherit
+            z-index: 51
+            position: -webkit-sticky
+            position: sticky
+            left: 0
+
+        tr.tuple-2 td:first-child
+            background: white
+
+
 
         *:not(.safe):not(.cdsa),
         &:before

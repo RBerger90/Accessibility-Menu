@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let cdsa_guide_bord2 = document.createElement("div");
             cdsa_guide_obj.id = "cdsa_guide";
             addClass(cdsa_guide_bord1,"cdsa_guide_border");
+            cdsa_guide_bord2.id = "upper_bord";
             addClass(cdsa_guide_bord2,"cdsa_guide_border");
 
             //class to avoid invisibility if fullscreen table on
@@ -405,7 +406,7 @@ document.addEventListener("pointermove", (e) => {
         let bordDown = document.getElementsByClassName("cdsa_guide_border")[1];
         let a = window.innerHeight - e.clientY; //Index of the mouse from the bottom
         guide.style.top = e.clientY - 40 + "px"; //Value based on guide's height of 80px
-        bordUp.style.bottom = a + 40 + "px";
+        bordUp.style.top = e.clientY - 40 + "px";
         bordDown.style.top = e.clientY + 60 + "px";
     }else{
         return 0;

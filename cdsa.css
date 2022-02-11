@@ -63,6 +63,10 @@
   background-color: rgba(72, 61, 72, 0.5);
   visibility: hidden;
 }
+.cdsa_guide_border#upper_bord {
+  transform-origin: center top;
+  transform: rotate(180deg);
+}
 .cdsa_guide_border.high_contrast {
   background-color: rgba(210, 210, 210, 0.75) !important;
 }
@@ -267,6 +271,29 @@ body.warningTable:after {
 }
 body.justTable {
   padding-top: 0 !important;
+}
+body.justTable td, body.justTable th {
+  padding: 5px !important;
+}
+body.justTable .safe {
+  padding: 0;
+  margin: 0;
+}
+body.justTable tr:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 52;
+}
+body.justTable tr td:first-child {
+  background: inherit;
+  z-index: 51;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+}
+body.justTable tr.tuple-2 td:first-child {
+  background: white;
 }
 body.justTable *:not(.safe):not(.cdsa), body.justTable:before {
   display: none;
